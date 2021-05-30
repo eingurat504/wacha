@@ -29,7 +29,7 @@
                     <img src="{{ asset('images/wacha.jpg') }}" alt="logo" width="400px;" height="70px;"/>
                 </a>
                 <a class="navbar-brand brand-logo-mini" href="{{ url('/') }}">
-                    ufza
+                    Wch
                     {{--<img src="{{ asset('images/logo-mini.svg') }}" alt="logo"/>--}}
                 </a>
                 {{--<a class="navbar-brand brand-logo" href="{{ route('home') }}">--}}
@@ -229,12 +229,12 @@
                             </a>
                         </li>
                     @endcan
-                    {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="#">--}}
-                    {{--<span class="menu-title">Leave Type</span>--}}
-                    {{--<i class="mdi mdi-format-list-bulleted menu-icon"></i>--}}
-                    {{--</a>--}}
-                    {{--</li>--}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="menu-title">Leave Type</span>
+                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#app-reports" aria-expanded="true"
                            aria-controls="app-reports">
