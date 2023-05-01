@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -42,7 +42,7 @@ class LeaveType extends Model
      * @var array
      */
     protected $fillable = [
-        'date_from',
+        
     ];
 
 
