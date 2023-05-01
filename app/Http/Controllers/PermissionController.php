@@ -27,7 +27,7 @@ class PermissionController extends Controller
 
         $this->authorize('viewAny', [Permission::class]);
 
-        $permissions = Permission::paginate(10);
+        $permissions = Permission::all();
 
         return view('permissions.index', [
             'permissions' => $permissions
