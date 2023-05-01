@@ -181,10 +181,6 @@ class PermissionsSeeder extends Seeder
                'name' => 'delete leave_types',
                'guard_name' => $guard_name,
            ],
-           [
-               'name' => 'sync-hops leave_types',
-               'guard_name' => $guard_name,
-           ],
        ]);
 //
 //        Permission::insert([
