@@ -14,7 +14,7 @@ class LeaveTypeController extends Controller
      */
     public function index()
     {
-        $this->authorize('viewAny', [LeaveType::class]);
+        // $this->authorize('viewAny', [LeaveType::class]);
 
         $leave_types = LeaveType::with('createdby')->get();
 
