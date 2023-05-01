@@ -230,12 +230,6 @@
                         </li>
                     @endcan
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="menu-title">Leave Type</span>
-                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#app-reports" aria-expanded="true"
                            aria-controls="app-reports">
                             <span class="menu-title">Reports</span>
@@ -274,6 +268,14 @@
                                 @can('viewAny', \App\Models\User::class)
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('users.index') }}">Users</a>
+                                    </li>
+                                @endcan
+                                @can('viewAny', \App\Models\LeaveType::class)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <span class="menu-title">Leave Type</span>
+                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                        </a>
                                     </li>
                                 @endcan
                             </ul>
