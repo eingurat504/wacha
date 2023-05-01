@@ -24,13 +24,13 @@ class LeaveTypePolicy
      * Determine whether the consumer can view a user.
      *
      * @param User $user
-     * @param int  $leaveId
+     * @param int  $leaveTypeId
      *
      * @return bool
      */
-    public function view(User $user, int $leaveId)
+    public function view(User $user, int $leaveTypeId)
     {
-        if ($user->id == $leaveId) {
+        if ($user->id == $leaveTypeId) {
             return true;
         }
 
@@ -53,13 +53,13 @@ class LeaveTypePolicy
      * Determine whether the consumer can update a user.
      *
      * @param User $user
-     * @param int $leaveId
+     * @param int $leaveTypeId
      *
      * @return bool
      */
-    public function update(User $user, int $leaveId)
+    public function update(User $user, int $leaveTypeId)
     {
-        if ($user->id == $leaveId) {
+        if ($user->id == $leaveTypeId) {
             return true;
         }
 
@@ -70,13 +70,13 @@ class LeaveTypePolicy
      * Determine whether the consumer can update a user.
      *
      * @param User $user
-     * @param int $leaveId
+     * @param int $leaveTypeId
      *
      * @return bool
      */
-    public function apply(User $user, int $leaveId)
+    public function apply(User $user, int $leaveTypeId)
     {
-        if ($user->id == $leaveId) {
+        if ($user->id == $leaveTypeId) {
             return true;
         }
 
