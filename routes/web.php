@@ -75,6 +75,18 @@ Route::group(['prefix' => '/leaves', 'as' => 'leaves.'], function () {
 
 });
 
+Route::group(['prefix' => '/leave_types', 'as' => 'leave_types.'], function () {
+
+    Route::get('/', 'LeaveTypeController@index')->name('index');
+    Route::get('/{leave}', 'LeaveTypeController@show')->name('show');
+    Route::get('/create', 'LeaveTypeController@create')->name('create');
+    Route::post('/', 'LeaveTypeController@store')->name('store');
+    Route::get('/{leave}/edit', 'LeaveTypeController@edit')->name('edit');
+    Route::put('/{leave}', 'LeaveTypeController@update')->name('update');
+    Route::delete('/{leave}', 'LeaveTypeController@destroy')->name('destroy');
+
+});
+
 Route::group(['prefix' => '/reports', 'as' => 'reports.'], function () {
 
     Route::get('/roaster', 'ReportController@roaster')->name('roaster');

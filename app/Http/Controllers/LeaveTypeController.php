@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\LeaveType;
+use App\Models\LeaveType;
 use Illuminate\Http\Request;
 
 class LeaveTypeController extends Controller
@@ -14,7 +14,14 @@ class LeaveTypeController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('viewAny', [LeaveType::class]);
+
+        $leave_types = LeaveType::with('createdby')->get();
+
+        return view('leaves.types.index', [
+            'leave_types' => $leave_types
+        ]);
+
     }
 
     /**

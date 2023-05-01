@@ -272,10 +272,7 @@
                                 @endcan
                                 @can('viewAny', \App\Models\LeaveType::class)
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            <span class="menu-title">Leave Type</span>
-                                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                                        </a>
+                                        <a class="nav-link" href="{{ route('leave_types.index') }}">Leave Types</a>
                                     </li>
                                 @endcan
                             </ul>
