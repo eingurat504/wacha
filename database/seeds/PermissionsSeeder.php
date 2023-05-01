@@ -159,33 +159,33 @@ class PermissionsSeeder extends Seeder
                 'guard_name' => $guard_name,
             ],
         ]);
-//
-//        Permission::insert([
-//            [
-//                'name' => 'view-any schedules',
-//                'guard_name' => $guard_name,
-//            ],
-//            [
-//                'name' => 'view schedules',
-//                'guard_name' => $guard_name,
-//            ],
-//            [
-//                'name' => 'create schedules',
-//                'guard_name' => $guard_name,
-//            ],
-//            [
-//                'name' => 'update schedules',
-//                'guard_name' => $guard_name,
-//            ],
-//            [
-//                'name' => 'delete schedules',
-//                'guard_name' => $guard_name,
-//            ],
-//            [
-//                'name' => 'sync-hops schedules',
-//                'guard_name' => $guard_name,
-//            ],
-//        ]);
+
+       Permission::insert([
+           [
+               'name' => 'view-any leave_types',
+               'guard_name' => $guard_name,
+           ],
+           [
+               'name' => 'view leave_types',
+               'guard_name' => $guard_name,
+           ],
+           [
+               'name' => 'create leave_types',
+               'guard_name' => $guard_name,
+           ],
+           [
+               'name' => 'update leave_types',
+               'guard_name' => $guard_name,
+           ],
+           [
+               'name' => 'delete leave_types',
+               'guard_name' => $guard_name,
+           ],
+           [
+               'name' => 'sync-hops leave_types',
+               'guard_name' => $guard_name,
+           ],
+       ]);
 //
 //        Permission::insert([
 //            [
