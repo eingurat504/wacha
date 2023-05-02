@@ -86,6 +86,7 @@ class LeaveTypeController extends Controller
     public function edit($leaveTypeId)
     {
         //
+
     }
 
     /**
@@ -97,7 +98,23 @@ class LeaveTypeController extends Controller
      */
     public function update(Request $request, $leaveTypeId)
     {
-        //
+
+        $this->authorize('update', [LeaveType::class, $leaveTypeId]);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required|max:255',
+        ]);
+
+        $leave_type = LeaveType::findOrFail($leaveTypeId);
+
+        $leave_type->name = $request->input('name', $leave->name);
+        $leave_type->status = 0;
+        $leave_type->description = $request->input('description', $leave_type->description);
+        $leave_type->created_by = Auth::user()->id;
+        $leave_type->updated_at = date('Y-m-d H:i:s');
+        $leave_type->save();
+
     }
 
     /**
