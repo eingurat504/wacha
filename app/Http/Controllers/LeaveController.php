@@ -89,23 +89,6 @@ class LeaveController extends Controller
         $leave->created_by = Auth::user()->id;
         $leave->save();
 
-//        $startDate = new \DateTime($request->date_from);
-//        $endDate = new \DateTime($request->date_to);
-//
-//        $interval = \DateInterval::createFromDateString('1 day');
-//        $period = new \DatePeriod($startDate, $interval, $endDate);
-//
-//        foreach ($period as $date) {
-//
-//            $application = new Application();
-//            $application->leave_date = $date->format('Y-m-d');
-////            $application->leave_id = $leave->id;
-////            $application->user_id = Auth::user()->id;
-//            $application->save();
-//
-//
-////            echo $date->format(\DateTime::ATOM);
-//        }
         $period = $request->start_date ." to ". $request->end_date;
 
         flash("{$period} created.")->success();
