@@ -270,11 +270,11 @@
                                         <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                                     </li>
                                 @endcan
-                                @can('viewAny', \App\Models\LeaveType::class)
+                                <!-- @can('viewAny', \App\Models\LeaveType::class) -->
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('leave_types.index') }}">Leave Types</a>
                                     </li>
-                                @endcan
+                                <!-- @endcan -->
                             </ul>
                         </div>
                     </li>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class LeaveTypeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display leave types
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,38 +31,59 @@ class LeaveTypeController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', [LeaveType::class]);
+
+        return view('leaves.types.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a leave type.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        
+        $this->authorize('create', [LeaveType::class]);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required|max:255',
+        ]);
+
+        $leave = new Leave();
+        $leave->name = $request->name;
+        $leave->status = 0;
+        $leave->description = $request->description;
+        $leave->created_by = Auth::user()->id;
+        $leave->save();
+
     }
 
     /**
-     * Display the specified resource.
+     * Show Leave Type.
      *
      * @param  \App\LeaveType  $leaveType
      * @return \Illuminate\Http\Response
      */
-    public function show(LeaveType $leaveType)
+    public function show($leaveTypeId)
     {
-        //
+
+        $leave_type = LeaveType::with('createdby')->findorfail($leaveTypeId);
+
+        return view('leaves.types.show', [
+            'leave_type' => $leave_type
+        ]);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Edit leave type.
      *
      * @param  \App\LeaveType  $leaveType
      * @return \Illuminate\Http\Response
      */
-    public function edit(LeaveType $leaveType)
+    public function edit($leaveTypeId)
     {
         //
     }
@@ -74,7 +95,7 @@ class LeaveTypeController extends Controller
      * @param  \App\LeaveType  $leaveType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LeaveType $leaveType)
+    public function update(Request $request, $leaveTypeId)
     {
         //
     }
