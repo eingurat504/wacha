@@ -123,8 +123,16 @@ class LeaveTypeController extends Controller
      * @param  \App\LeaveType  $leaveType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LeaveType $leaveType)
+    public function destroy(LeaveType $leaveTypeId)
     {
-        //
+        $this->authorize('delete', [Leave::class, $leaveTypeId]);
+
+        $leave = LeaveType::findOrFail($leaveId);
+
+        $leave->delete();
+
+        flash('Permission has been deleted.')->error()->important();
+
+        return redirect()->route('leaves.index');
     }
 }
