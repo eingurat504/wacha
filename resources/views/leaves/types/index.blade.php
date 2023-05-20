@@ -55,11 +55,11 @@
             </ol>
         </nav>
         <div>
-            @can('create', \App\Models\LeaveType::class)
+            <!-- @can('create', \App\Models\LeaveType::class) -->
                 <a class="btn btn-sm btn-success btn-fw" href="{{ route('leave_types.create') }}">
                     <i class="mdi mdi-plus"></i> Create
                 </a>
-            @endcan
+            <!-- @endcans -->
         </div>
     </div>
     <div class="row">
@@ -104,26 +104,7 @@
                                         <i class="mdi mdi-dots-horizontal" style="font-size: 1.25rem;"
                                            data-toggle="dropdown"></i>
                                         <div class="dropdown-menu">
-                                            @can('apply', [\App\Models\Leave::class, $leave->id])
-                                                <a class="dropdown-item"
-                                                   href="{{ route('leave_types.apply.show', $leave->id) }}">
-                                                    <i class="mdi mdi-upload"></i>&nbsp;Apply
-                                                </a>
-                                            @endcan
-                                            @can('update', [\App\Models\Leave::class, $leave->id])
-                                                <a class="dropdown-item"
-                                                   href="{{ route('leave_types.edit', $leave->id) }}">
-                                                    <i class="mdi mdi-pencil"></i>&nbsp;Edit
-                                                </a>
-                                            @endcan
-                                            @can('delete', [\App\Models\Leave::class, $leave->id])
-                                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                                   data-id="{{ $leave->id }}"
-                                                   data-name="{{ $leave->date_from .'  to  '. $leave->date_to }}"
-                                                   data-target="#destroy-leave-modal">
-                                                    <i class="mdi mdi-delete"></i>&nbsp;Cancel
-                                                </a>
-                                            @endcan
+                                           
                                         </div>
                                     </div>
                                 </td>
@@ -136,6 +117,6 @@
         </div>
     </div>
 
-    @include('leaves.modals.destroy')
+    <!-- @include('leaves.modals.destroy') -->
 
 @endsection
