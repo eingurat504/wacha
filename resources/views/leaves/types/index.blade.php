@@ -55,11 +55,11 @@
             </ol>
         </nav>
         <div>
-            <!-- @can('create', \App\Models\LeaveType::class) -->
+            @can('create', \App\Models\LeaveType::class)
                 <a class="btn btn-sm btn-success btn-fw" href="{{ route('leave_types.create') }}">
                     <i class="mdi mdi-plus"></i> Create
                 </a>
-            <!-- @endcans -->
+            @endcans
         </div>
     </div>
     <div class="row">
@@ -67,55 +67,7 @@
             @include('flash::message')
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="border-bottom">
-                        <h4 class="card-title">Leave Types</h4>
-                    </div>
-                    <table id="tbl_days" class="table table-striped" width="100%">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th>Description</th>
-                            <th>Created By</th>
-                            <th>Created At</th>
-                            <th>Updated At</th>
-                            <th class="text-center">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($leave_types as $leave_type)
-                            <tr>
-                                <td>
-                                    <a href="{{ route('leave_type_types.show', $leave_type->id) }}">
-                                        {{ $leave_type->name }}
-                                    </a>
-                                </td>
-                                <td>{{ $leave_type->status }}</td>
-                                <td>{{ $leave_type->description }}</td>
-                                <td>{{ $leave_type->createdby->name }}</td>
-                                <td>{{ $leave_type->created_at }}</td>
-                                <td>{{ $leave_type->updated_at }}</td>
-                                <td class="text-center">
-                                    <div class="dropdown show">
-                                        <i class="mdi mdi-dots-horizontal" style="font-size: 1.25rem;"
-                                           data-toggle="dropdown"></i>
-                                        <div class="dropdown-menu">
-                                           
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- @include('leaves.modals.destroy') -->
 

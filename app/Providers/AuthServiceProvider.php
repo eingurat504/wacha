@@ -19,6 +19,7 @@ class AuthServiceProvider extends ServiceProvider
 
         'App\Models\Application' => 'App\Policies\ApplicationPolicy',
         'App\Models\Leave' => 'App\Policies\LeavePolicy',
+        'App\Models\LeaveType' => 'App\Policies\LeaveTypePolicy',
         'App\Models\User' => 'App\Policies\UserPolicy',
     ];
 
