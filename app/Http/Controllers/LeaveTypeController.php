@@ -115,7 +115,7 @@ class LeaveTypeController extends Controller
      */
     public function destroy(LeaveType $leaveTypeId)
     {
-        $this->authorize('delete', [Leave::class, $leaveTypeId]);
+        $this->authorize('delete', [LeaveType::class, $leaveTypeId]);
 
         $leave = LeaveType::findOrFail($leaveId);
 
