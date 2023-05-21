@@ -66,22 +66,7 @@ class LeaveTypePolicy
         return $user->can('update leave_types');
     }
 
-    /**
-     * Determine whether the consumer can update a user.
-     *
-     * @param User $user
-     * @param int $leaveTypeId
-     *
-     * @return bool
-     */
-    public function apply(User $user, int $leaveTypeId)
-    {
-        if ($user->id == $leaveTypeId) {
-            return true;
-        }
-
-        return $user->can('apply leave_types');
-    }
+   
 
     /**
      * Determine whether the consumer can soft delete any user.

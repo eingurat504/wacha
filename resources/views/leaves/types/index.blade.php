@@ -65,6 +65,68 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="border-bottom">
+                        <h4 class="card-title">Leave Roaster</h4>
+                    </div>
+                    <table id="tbl_days" class="table table-striped" width="100%">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th class="text-center">Status</th>
+                            <th>Created By</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($leave_types as $leave_type)
+                            <tr>
+                                <td>{{ $leave_type->name }}</td>
+                                <td class="text-center">
+                                    @if($leave_type->status == 0 )
+                                        <span class="badge badge-info">Available</span>
+                                    @else
+                                        <span class="badge badge-info">Cancelled</span>
+                                    @endif
+                                </td>
+                                <td>{{ $leave_type->createdby->name }}</td>
+                                <td>{{ $leave_type->created_at }}</td>
+                                <td>{{ $leave_type->updated_at }}</td>
+                                <td class="text-center">
+                                    <div class="dropdown show">
+                                        <i class="mdi mdi-dots-horizontal" style="font-size: 1.25rem;"
+                                           data-toggle="dropdown"></i>
+                                        <div class="dropdown-menu">
+                                            @can('update', [\App\Models\LeaveType::class, $leave_type->id])
+                                                <a class="dropdown-item"
+                                                   href="{{ route('leave_types.edit', $leave_type->id) }}">
+                                                    <i class="mdi mdi-pencil"></i>&nbsp;Edit
+                                                </a>
+                                            @endcan
+                                            @can('delete', [\App\Models\LeaveType::class, $leave_type->id])
+                                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                                   data-id="{{ $leave_type->id }}"
+                                                   data-name="{{ $leave_type->name }}"
+                                                   data-target="#destroy-leave-modal">
+                                                    <i class="mdi mdi-delete"></i>&nbsp;Cancel
+                                                </a>
+                                            @endcan
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- @include('leaves.modals.destroy') -->
 
