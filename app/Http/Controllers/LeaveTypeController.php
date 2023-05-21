@@ -79,6 +79,25 @@ class LeaveTypeController extends Controller
         ]);
     }
 
+        /**
+     *  Show edit leave type
+     *
+     * @param $leaveTypeId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function edit($leaveTypeId)
+    {
+        $this->authorize('update', [LeaveType::class, $leaveTypeId]);
+
+        $leave_type = LeaveType::findorfail($leaveTypeId);
+
+        return view('leaves.types.edit', [
+            'leave_type' => $leave_type
+        ]);
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
