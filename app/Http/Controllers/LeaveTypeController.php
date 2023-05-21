@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LeaveType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LeaveTypeController extends Controller
 {
@@ -52,12 +53,12 @@ class LeaveTypeController extends Controller
             'description' => 'required|max:255',
         ]);
 
-        $leave = new Leave();
-        $leave->name = $request->name;
-        $leave->status = 0;
-        $leave->description = $request->description;
-        $leave->created_by = Auth::user()->id;
-        $leave->save();
+        $leaveType = new LeaveType();
+        $leaveType->name = $request->name;
+        $leaveType->status = 0;
+        $leaveType->description = $request->description;
+        $leaveType->created_by = Auth::user()->id;
+        $leaveType->save();
 
     }
 
@@ -70,23 +71,12 @@ class LeaveTypeController extends Controller
     public function show($leaveTypeId)
     {
 
-        $leave_type = LeaveType::with('createdby')->findorfail($leaveTypeId);
+        $leave_type = LeaveType::with('createdby')
+                        ->findorfail($leaveTypeId);
 
         return view('leaves.types.show', [
             'leave_type' => $leave_type
         ]);
-    }
-
-    /**
-     * Edit leave type.
-     *
-     * @param  \App\LeaveType  $leaveType
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($leaveTypeId)
-    {
-        //
-
     }
 
     /**

@@ -54,13 +54,10 @@
                 <li class="breadcrumb-item active" aria-current="page">Leave Types</li>
             </ol>
         </nav>
-        <div>
-            @can('create', \App\Models\LeaveType::class)
+
                 <a class="btn btn-sm btn-success btn-fw" href="{{ route('leave_types.create') }}">
                     <i class="mdi mdi-plus"></i> Create
                 </a>
-            @endcans
-        </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
