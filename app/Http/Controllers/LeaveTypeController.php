@@ -60,6 +60,10 @@ class LeaveTypeController extends Controller
         $leaveType->created_by = Auth::user()->id;
         $leaveType->save();
 
+        flash($leave_type->name. ' created successfully.')->important();
+
+        return redirect()->route('leave_types.index');
+
     }
 
     /**
@@ -123,6 +127,10 @@ class LeaveTypeController extends Controller
         $leave_type->created_by = Auth::user()->id;
         $leave_type->updated_at = date('Y-m-d H:i:s');
         $leave_type->save();
+
+        flash($leave_type->name. ' Updated successfully.')->important();
+
+        return redirect()->route('leave_types.index');
 
     }
 
