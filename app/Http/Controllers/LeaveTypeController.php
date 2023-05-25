@@ -117,7 +117,7 @@ class LeaveTypeController extends Controller
 
         $leave_type = LeaveType::findOrFail($leaveTypeId);
 
-        $leave_type->name = $request->input('name', $leave->name);
+        $leave_type->name = $request->input('name', $leave_type->name);
         $leave_type->status = 0;
         $leave_type->description = $request->input('description', $leave_type->description);
         $leave_type->created_by = Auth::user()->id;

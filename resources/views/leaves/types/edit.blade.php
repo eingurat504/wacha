@@ -17,6 +17,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('leave_types.update', $leave_type->id) }}" class="pt-3">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <label>Name:</label>
                             <input type="text" name="name" id="name" required
