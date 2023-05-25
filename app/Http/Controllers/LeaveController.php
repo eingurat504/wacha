@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ApplicationLog;
 use App\Models\Leave;
+use App\Models\LeaveType;
 use App\Models\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -168,8 +169,11 @@ class LeaveController extends Controller
 
         $leave = Leave::findOrFail($leaveId);
 
+        $types = LeaveType::all();
+
         return view('leaves.apply', [
-            'leave' => $leave
+            'leave' => $leave,
+            'types' => $types
         ]);
     }
 
