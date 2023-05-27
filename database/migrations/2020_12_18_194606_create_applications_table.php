@@ -21,12 +21,17 @@ class CreateApplicationsTable extends Migration
             $table->unsignedBigInteger('applied_by');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('leave_id')->nullable();
+            
+            $table->unsignedBigInteger('leave_type_id')->nullable();
 
             $table->foreign('leave_id')->references('id')->on('leaves')
                 ->onUpdate('restrict')->onDelete('restrict');
 
             $table->foreign('applied_by')->references('id')->on('users')
                 ->onUpdate('restrict')->onDelete('restrict');
+                
+            $table->foreign('leave_type_id')->references('id')->on('leave_types')
+            ->onUpdate('restrict')->onDelete('restrict');
 
             $table->timestamps();
 

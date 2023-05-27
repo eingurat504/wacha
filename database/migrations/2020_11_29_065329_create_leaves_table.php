@@ -15,7 +15,6 @@ class CreateLeavesTable extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('leave_type')->nullable();
             $table->string('start_date');
             $table->string('end_date')->nullable();
             $table->integer('status')->nullable();
@@ -25,10 +24,6 @@ class CreateLeavesTable extends Migration
 
             $table->foreign('created_by')->references('id')->on('users')
                 ->onUpdate('restrict')->onDelete('restrict');
-
-            $table->foreign('leave_type')->references('id')->on('leave_types')
-                ->onUpdate('restrict')->onDelete('restrict');
-
         });
     }
 
