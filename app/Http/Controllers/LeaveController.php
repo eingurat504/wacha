@@ -196,6 +196,7 @@ class LeaveController extends Controller
 
         $this->validate($request, [
             'start_date' => "required|after:{$leave->start_date}",
+            'leave_type' => 'sometimes',
             'end_date' => "required|different:start_date|after:start_date|before:{$leave->end_date}",
             'description' => 'sometimes|max:255',
         ]);
@@ -203,6 +204,7 @@ class LeaveController extends Controller
         $application = new Application();
         $application->start_date = $request->start_date;
         $application->end_date = $request->end_date;
+        $application->leave_type = $request->leave_type;
         $application->status = 0;
         $application->description = $request->description;
         $application->leave_id = $leave->id;
