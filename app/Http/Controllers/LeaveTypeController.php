@@ -144,12 +144,12 @@ class LeaveTypeController extends Controller
     {
         $this->authorize('delete', [LeaveType::class, $leaveTypeId]);
 
-        $leave = LeaveType::findOrFail($leaveId);
+        $leave = LeaveType::findOrFail($leaveTypeId);
 
         $leave->delete();
 
         flash('Permission has been deleted.')->error()->important();
 
-        return redirect()->route('leaves.index');
+        return redirect()->route('leave_types.index');
     }
 }
