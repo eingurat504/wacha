@@ -169,11 +169,11 @@ class LeaveController extends Controller
 
         $leave = Leave::findOrFail($leaveId);
 
-        $types = LeaveType::all();
+        $leave_types = LeaveType::all();
 
         return view('leaves.apply', [
             'leave' => $leave,
-            'types' => $types
+            'leave_types' => $leave_types
         ]);
     }
 
