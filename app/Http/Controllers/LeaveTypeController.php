@@ -60,7 +60,7 @@ class LeaveTypeController extends Controller
         $leaveType->created_by = Auth::user()->id;
         $leaveType->save();
 
-        flash($leave_type->name. ' created successfully.')->important();
+        flash($leaveType->name. ' created successfully.')->important();
 
         return redirect()->route('leave_types.index');
 

@@ -125,6 +125,20 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Leav type</label>
+                            <select  name="leave_type" id="leave_type" required
+                                   class="form-control form-control-lg @error('leave_type') is-invalid @enderror" placeholder="{{ __('Leave type') }}">
+                                <option value="">Select Leave type</option>
+                                @foreach($leave_types as $leave_type) 
+                                    <option value="{{ $leave_type->id }}">{{ $leave_type->name }}</option>
+                                @endforeach
+                                </select>
+                            @error('leave_type')
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <textarea name="description"
                                       class="form-control form-control-lg @error('description') is-invalid @enderror"
                                       placeholder="{{ __('Description') }}">{{ old('description') }}
