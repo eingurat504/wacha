@@ -70,7 +70,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="border-bottom">
-                        <h4 class="card-title">Leave Roaster</h4>
+                        <h4 class="card-title">Leave Types</h4>
                     </div>
                     <table id="tbl_days" class="table table-striped" width="100%">
                         <thead>
@@ -112,7 +112,7 @@
                                                 <a class="dropdown-item" href="#" data-toggle="modal"
                                                    data-id="{{ $leave_type->id }}"
                                                    data-name="{{ $leave_type->name }}"
-                                                   data-target="#destroy-leave-modal">
+                                                   data-target="#destroy-leave-type-modal">
                                                     <i class="mdi mdi-delete"></i>&nbsp;Cancel
                                                 </a>
                                             @endcan
@@ -128,6 +128,6 @@
         </div>
     </div>
 
-    <!-- @include('leaves.modals.destroy') -->
+    @include('leaves.modals.destroy')
 
 @endsection
